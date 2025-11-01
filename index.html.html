@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arsu's Puzzle for Memo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-image: url('images.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #4d004d;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .puzzle {
+            font-size: 20px;
+            margin: 20px 0;
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 18px;
+            width: 200px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #ff66a3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .options {
+            display: none;
+            margin-top: 30px;
+        }
+        .option {
+            background-color: #fff0f5;
+            border: 2px solid #ff66a3;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .final-message {
+            display: none;
+            margin-top: 30px;
+            font-size: 22px;
+            color: #800040;
+        }
+        #romanticImage {
+            display: none;
+            margin-top: 20px;
+        }
+        #romanticImage img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the heart of your Arsu. Solve the puzzle and find it out</h1>
+    <div class="puzzle">
+        Unscramble this word: <strong>R N N I E D</strong><br><br>
+        <input type="text" id="answer" placeholder="Your answer here">
+        <button onclick="checkAnswer()">Submit</button>
+    </div>
+    <div id="romanticImage">
+        <img src="surprise.jpg" alt="Love Image">
+    </div>
+    <div class="options" id="options">
+        <h2>Choose where we go for dinner 💕</h2>
+        <div class="option" onclick="showFinal('Istanbul Restaurant')">Istanbul Restaurant</div>
+        <div class="option" onclick="showFinal('Any Restaurant in LuckyOne Mall')">Any Restaurant in LuckyOne Mall</div>
+    </div>
+    <div class="final-message" id="finalMessage"></div>
+
+    <audio autoplay loop>
+        <source src="your-music-file-path.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        function checkAnswer() {
+            var input = document.getElementById('answer').value.trim().toUpperCase();
+            if (input === 'DINNER') {
+                document.getElementById('options').style.display = 'block';
+                document.getElementById('romanticImage').style.display = 'block';
+            } else {
+                alert('Oops! Try again, pyari Memo.');
+            }
+        }
+
+        function showFinal(place) {
+            document.getElementById('finalMessage').style.display = 'block';
+            document.getElementById('finalMessage').innerHTML = `Yay! We're going to <strong>${place}</strong>!<br><br>Tmhara Ghadeera, khoota man tmhari jaan tmhara dil Arsu, LOVESSSS YOOUUUU ❤️`;
+        }
+    </script>
+</body>
+</html>
